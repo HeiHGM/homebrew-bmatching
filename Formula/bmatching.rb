@@ -11,14 +11,16 @@ class Bmatching < Formula
   depends_on "gcc" => :build
   depends_on "ncurses"
 
-  # Bypass Homebrew compiler shims — use the Homebrew GCC directly.
-  env :std
-
   def install
+    gcc = Formula["gcc"]
+    gcc_version = gcc.version.major
+
     system "cmake", "-B", "build",
                     "-DCMAKE_BUILD_TYPE=Release",
                     "-DBUILD_TESTING=OFF",
                     "-DBMATCHING_ENABLE_LOGGING=OFF",
+                    "-DCMAKE_C_COMPILER=#{gcc.opt_bin}/gcc-#{gcc_version}",
+                    "-DCMAKE_CXX_COMPILER=#{gcc.opt_bin}/g++-#{gcc_version}",
                     *std_cmake_args
     system "cmake", "--build", "build", "-j#{ENV.make_jobs}", "--target", "bmatching_cli"
 
