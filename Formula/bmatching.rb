@@ -3,11 +3,12 @@ class Bmatching < Formula
   homepage "https://github.com/HeiHGM/Bmatching"
   url "https://github.com/HeiHGM/Bmatching.git",
       tag:      "v1.0.0",
-      revision: "HEAD"
+      revision: "7f0ef58e8c482c61b9feaeb60d70c698b14c1757"
   license "MIT"
   head "https://github.com/HeiHGM/Bmatching.git", branch: "main"
 
   depends_on "cmake" => :build
+  depends_on "gcc" => :build
   depends_on "ncurses"
 
   def install
