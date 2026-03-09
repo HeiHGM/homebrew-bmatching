@@ -28,7 +28,7 @@ class Bmatching < Formula
                     *cmake_args
     system "cmake", "--build", "build", "-j#{ENV.make_jobs}", "--target", "bmatching_cli"
 
-    bin.install "build/app/bmatching_cli" => "bmatching"
+    bin.install "build/app/bmatching_cli"
     pkgshare.install Dir["examples/*"]
   end
 
