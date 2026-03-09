@@ -11,6 +11,9 @@ class Bmatching < Formula
   depends_on "gcc" => :build
   depends_on "ncurses"
 
+  # Bypass Homebrew compiler shims — use the Homebrew GCC directly.
+  env :std
+
   def install
     system "cmake", "-B", "build",
                     "-DCMAKE_BUILD_TYPE=Release",
