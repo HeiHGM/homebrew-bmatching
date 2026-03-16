@@ -6,7 +6,6 @@ class Streaming < Formula
       revision: "f2c28701c95814620711a76465d57b5139acf6a0"
   license "MIT"
   head "https://github.com/HeiHGM/Streaming.git", branch: "main"
-  version "HEAD"
   env :std
   depends_on "bazelisk" => :build
 
