@@ -19,6 +19,7 @@ class Streaming < Formula
 
     # Install the compiled binary
     bin.install "streaming_cli"
+    pkgshare.install "README.md"
   end
 
   test do
